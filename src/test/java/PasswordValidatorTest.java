@@ -29,9 +29,19 @@ public class PasswordValidatorTest {
     @Test
     public void testContainsCommonPasswords() {
         assertTrue(PasswordValidator.containsCommonPasswords("password1"));
-        assertTrue(PasswordValidator.containsCommonPasswords("LassMichRein"));
-        assertTrue(PasswordValidator.containsCommonPasswords("Geheim1"));
+        assertTrue(PasswordValidator.containsCommonPasswords("PASSWORD1")); // Großschreibung
+        assertTrue(PasswordValidator.containsCommonPasswords("LetMeIn1"));
+        assertTrue(PasswordValidator.containsCommonPasswords("WELCOME1")); // Großschreibung
+        assertTrue(PasswordValidator.containsCommonPasswords("admin123"));
+        assertTrue(PasswordValidator.containsCommonPasswords("ADMIN123")); // Großschreibung
+        assertTrue(PasswordValidator.containsCommonPasswords("123abc"));
+        assertTrue(PasswordValidator.containsCommonPasswords("123ABC")); // Großschreibung
         assertFalse(PasswordValidator.containsCommonPasswords("SecurePwd123"));
+        assertFalse(PasswordValidator.containsCommonPasswords("RandomPassword123"));
+        assertFalse(PasswordValidator.containsCommonPasswords("LassMichRein"));
+        assertFalse(PasswordValidator.containsCommonPasswords("Geheim")); // Kleinbuchstaben
+        assertFalse(PasswordValidator.containsCommonPasswords("Zabcdefghijklmnopqrstuvwxyz"));
+        assertFalse(PasswordValidator.containsCommonPasswords("ZABCDEFGHIJKLMNOPQRSTUVWXYZ")); // Gemischt
     }
     @Test
     public void testContainsSpecialCharacters() {

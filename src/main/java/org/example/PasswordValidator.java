@@ -24,7 +24,7 @@ public class PasswordValidator {
                 containsLowercase = true;
             }
 
-            // Wenn beides gefunden wurde, können wir aufhören zu suchen
+
             if (containsUppercase && containsLowercase) {
                 break;
             }
@@ -33,7 +33,11 @@ public class PasswordValidator {
         return containsUppercase && containsLowercase;
     }
     public static boolean containsCommonPasswords(String password) {
-        String[] commonPasswords = {"password1", "123456", "qwerty", "lassmichrein", "Geheim1", "admin"};
+        String[] commonPasswords = {
+                "password1", "LetMeIn1", "welcome1", "admin123", "123abc",
+                "AdminAdmin", "password123", "TestTest", "qwerty123", "ChangeMe",
+                "ILoveYou", "LetMeIn", "password", "1234", "12345"
+        };
 
         for (String commonPassword : commonPasswords) {
             if (password.equalsIgnoreCase(commonPassword)) {
